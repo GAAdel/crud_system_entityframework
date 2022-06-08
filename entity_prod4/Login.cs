@@ -54,12 +54,13 @@ namespace entity_prod4
 			if (currenUser.RoleID == 1)
 			{
 				MainForm form = new MainForm();
-				form.Show();
+				form.ShowDialog();
 			}
 
 			if (currenUser.RoleID == 2)
 			{
-				MessageBox.Show("Пользователь!");
+				UserForm form = new UserForm(currenUser.ID);
+				form.ShowDialog();
 			}
 		}
 

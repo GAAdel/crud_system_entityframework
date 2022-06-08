@@ -19,6 +19,7 @@ namespace entity_prod4
 		public DbSet<Role> Roles { get; set; }
 		public DbSet<Office> Offices { get; set; }
 		public DbSet<Country> Countries { get; set; }
+		public DbSet<Log> Logs { get; set; }
 
 	}
 }
