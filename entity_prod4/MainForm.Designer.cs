@@ -41,9 +41,10 @@
 			// 
 			// btnAddUser
 			// 
-			this.btnAddUser.BackColor = System.Drawing.Color.LimeGreen;
+			this.btnAddUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(135)))), ((int)(((byte)(84)))));
 			this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnAddUser.ForeColor = System.Drawing.Color.White;
 			this.btnAddUser.Location = new System.Drawing.Point(43, 603);
 			this.btnAddUser.Name = "btnAddUser";
 			this.btnAddUser.Size = new System.Drawing.Size(225, 60);
@@ -86,9 +87,10 @@
 			// 
 			// btnEditUser
 			// 
-			this.btnEditUser.BackColor = System.Drawing.Color.Gold;
+			this.btnEditUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
 			this.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnEditUser.ForeColor = System.Drawing.Color.Black;
 			this.btnEditUser.Location = new System.Drawing.Point(331, 603);
 			this.btnEditUser.Name = "btnEditUser";
 			this.btnEditUser.Size = new System.Drawing.Size(249, 60);
@@ -99,9 +101,10 @@
 			// 
 			// btnChaneUserStatus
 			// 
-			this.btnChaneUserStatus.BackColor = System.Drawing.Color.LightGray;
+			this.btnChaneUserStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(110)))), ((int)(((byte)(253)))));
 			this.btnChaneUserStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnChaneUserStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnChaneUserStatus.ForeColor = System.Drawing.Color.White;
 			this.btnChaneUserStatus.Location = new System.Drawing.Point(642, 603);
 			this.btnChaneUserStatus.Name = "btnChaneUserStatus";
 			this.btnChaneUserStatus.Size = new System.Drawing.Size(237, 60);
@@ -112,7 +115,7 @@
 			// 
 			// btnUpdateData
 			// 
-			this.btnUpdateData.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.btnUpdateData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(181)))), ((int)(((byte)(189)))));
 			this.btnUpdateData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnUpdateData.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnUpdateData.Location = new System.Drawing.Point(932, 603);
@@ -125,9 +128,10 @@
 			// 
 			// btnClose
 			// 
-			this.btnClose.BackColor = System.Drawing.Color.OrangeRed;
+			this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
 			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnClose.ForeColor = System.Drawing.Color.White;
 			this.btnClose.Location = new System.Drawing.Point(43, 24);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(225, 60);

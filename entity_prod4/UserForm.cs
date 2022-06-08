@@ -13,30 +13,42 @@ namespace entity_prod4
 {
 	public partial class UserForm : Form
 	{
+		// получаем с авторизации id пользователя
 		public int CurrentUserId;
+
+		// сумма всех секунд, которая тикает
 		public int CurrentTimer;
-		public int BeginCurrentTimer;
+
+		// начальная сумма всех секунд
+		public int BeginSessionTimer;
 
 		// для сохранения по id log'a
 		public int CurrentSessionId;
+
 		public UserForm(int idCurrentUser)
 		{
 			InitializeComponent();
 
+			CurrentUserId = idCurrentUser;
+
+			timerSpentUser.Start();
+
+			CurrentTimer = TotalTimer(idCurrentUser);
+
+			BeginSessionTimer = CurrentTimer;
+
+			initUserInterafce();
+
+		}
+
+		public void initUserInterafce()
+		{
 			MyDbContext db = new MyDbContext();
 
 			var currenDate = DateTime.Now.ToShortDateString();
 			var currenLoginTime = DateTime.Now.ToShortTimeString();
 
-			// получили id авторизованного пользователя
-			CurrentUserId = idCurrentUser;
-
-			labelWelcome.Text = "Добро пожаловать в систему " + db.Users.FirstOrDefault(user => user.ID == idCurrentUser).Firstname + " !";
-
-			timerSpentUser.Start();
-
-			CurrentTimer = TotalTimer(idCurrentUser);
-			BeginCurrentTimer = CurrentTimer;
+			labelWelcome.Text = "Добро пожаловать в систему " + db.Users.FirstOrDefault(user => user.ID == CurrentUserId).Firstname + " !";
 
 			TimeSpan totalTime = TimeSpan.FromSeconds(CurrentTimer);
 			labelTimeSpent.Text = string.Format("Потраченное время в системе: {0:D2}:{1:D2}:{2:D2}",
@@ -49,7 +61,7 @@ namespace entity_prod4
 				Date = currenDate,
 				LoginTime = currenLoginTime,
 				IsCrash = true,
-				UserID = idCurrentUser,
+				UserID = CurrentUserId,
 			};
 			db.Logs.Add(log);
 			db.SaveChanges();
@@ -57,15 +69,9 @@ namespace entity_prod4
 
 			var dbLogs = db.Logs.ToList();
 			var currentLogs = dbLogs.Where(error => error.UserID == CurrentUserId && error.IsCrash == true).ToList();
-			labelCrashes.Text = "Количество сбоев: " + (currentLogs.Count()-1);
+			labelCrashes.Text = "Количество сбоев: " + (currentLogs.Count() - 1);
 
 		}
-
-		public void checkCrashedSession()
-		{
-
-		}
-
 		public int TotalTimer(int idCurrentUser)
 		{
 			MyDbContext db = new MyDbContext();
@@ -97,9 +103,15 @@ namespace entity_prod4
 
 			var currentLogs = dbLogs.Where(log => log.UserID == CurrentUserId).ToList();
 
+
+
 			foreach (var log in currentLogs)
 			{
-				table.Rows.Add(log.Date, log.LoginTime, log.LogoutTime, log.TimeSpent, log.Reason);
+				TimeSpan spentTime = TimeSpan.FromSeconds(log.TimeSpent);
+				var elemSpentTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
+					spentTime.Hours, spentTime.Minutes, spentTime.Seconds);
+
+				table.Rows.Add(log.Date, log.LoginTime, log.LogoutTime, elemSpentTime, log.Reason);
 			}
 
 			dataGridView1.DataSource = table;
@@ -113,7 +125,7 @@ namespace entity_prod4
 			var currentLog = dbLogs.FirstOrDefault(log => log.ID == CurrentSessionId);
 			currentLog.LogoutTime = DateTime.Now.ToShortTimeString();
 			currentLog.IsCrash = false;
-			currentLog.TimeSpent = CurrentTimer - BeginCurrentTimer;
+			currentLog.TimeSpent = CurrentTimer - BeginSessionTimer;
 			db.SaveChanges();
 
 		}
@@ -126,7 +138,7 @@ namespace entity_prod4
 				totalTime.Hours, totalTime.Minutes, totalTime.Seconds) ;
 		}
 
-		public void AddColor()
+		public void drawUsersTable()
 		{
 			using (var db = new MyDbContext())
 			{
@@ -142,13 +154,13 @@ namespace entity_prod4
 			}
 		}
 
-		bool isPainted = false;
+		bool isShow = false;
 		private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
 		{
-			if (!isPainted)
+			if (!isShow)
 			{
-				isPainted = true;
-				AddColor();
+				isShow = true;
+				drawUsersTable();
 			}
 		}
 

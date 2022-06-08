@@ -40,14 +40,15 @@
 			// 
 			// btnClose
 			// 
-			this.btnClose.BackColor = System.Drawing.Color.OrangeRed;
+			this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
 			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnClose.ForeColor = System.Drawing.Color.White;
 			this.btnClose.Location = new System.Drawing.Point(924, 680);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(225, 60);
 			this.btnClose.TabIndex = 15;
-			this.btnClose.Text = "Exit";
+			this.btnClose.Text = "Выйти";
 			this.btnClose.UseVisualStyleBackColor = false;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
@@ -68,7 +69,7 @@
 			this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelWelcome.Location = new System.Drawing.Point(35, 26);
 			this.labelWelcome.Name = "labelWelcome";
-			this.labelWelcome.Size = new System.Drawing.Size(195, 36);
+			this.labelWelcome.Size = new System.Drawing.Size(156, 29);
 			this.labelWelcome.TabIndex = 16;
 			this.labelWelcome.Text = "Привествие:";
 			// 
@@ -78,7 +79,7 @@
 			this.labelTimeSpent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelTimeSpent.Location = new System.Drawing.Point(35, 78);
 			this.labelTimeSpent.Name = "labelTimeSpent";
-			this.labelTimeSpent.Size = new System.Drawing.Size(120, 36);
+			this.labelTimeSpent.Size = new System.Drawing.Size(96, 29);
 			this.labelTimeSpent.TabIndex = 17;
 			this.labelTimeSpent.Text = "Время:";
 			// 
@@ -88,7 +89,7 @@
 			this.labelCrashes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelCrashes.Location = new System.Drawing.Point(35, 133);
 			this.labelCrashes.Name = "labelCrashes";
-			this.labelCrashes.Size = new System.Drawing.Size(98, 36);
+			this.labelCrashes.Size = new System.Drawing.Size(78, 29);
 			this.labelCrashes.TabIndex = 18;
 			this.labelCrashes.Text = "Сбои:";
 			// 
