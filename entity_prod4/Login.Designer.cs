@@ -39,6 +39,7 @@
 			this.btnLogin = new System.Windows.Forms.Button();
 			this.timerTick = new System.Windows.Forms.Timer(this.components);
 			this.labelTimer = new System.Windows.Forms.Label();
+			this.btnExit = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -101,9 +102,9 @@
 			// 
 			this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnLogin.Location = new System.Drawing.Point(176, 491);
+			this.btnLogin.Location = new System.Drawing.Point(36, 506);
 			this.btnLogin.Name = "btnLogin";
-			this.btnLogin.Size = new System.Drawing.Size(504, 64);
+			this.btnLogin.Size = new System.Drawing.Size(333, 64);
 			this.btnLogin.TabIndex = 5;
 			this.btnLogin.Text = "Войти";
 			this.btnLogin.UseVisualStyleBackColor = true;
@@ -120,15 +121,30 @@
 			this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelTimer.Location = new System.Drawing.Point(123, 436);
 			this.labelTimer.Name = "labelTimer";
-			this.labelTimer.Size = new System.Drawing.Size(92, 32);
+			this.labelTimer.Size = new System.Drawing.Size(444, 40);
 			this.labelTimer.TabIndex = 6;
-			this.labelTimer.Text = "label3";
+			this.labelTimer.Text = "Повторите попытку через";
+			// 
+			// btnExit
+			// 
+			this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+			this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnExit.ForeColor = System.Drawing.Color.White;
+			this.btnExit.Location = new System.Drawing.Point(449, 506);
+			this.btnExit.Name = "btnExit";
+			this.btnExit.Size = new System.Drawing.Size(333, 64);
+			this.btnExit.TabIndex = 7;
+			this.btnExit.Text = "Выйти";
+			this.btnExit.UseVisualStyleBackColor = false;
+			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 			// 
 			// Login
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(823, 582);
+			this.Controls.Add(this.btnExit);
 			this.Controls.Add(this.labelTimer);
 			this.Controls.Add(this.btnLogin);
 			this.Controls.Add(this.textBoxPassword);
@@ -157,6 +173,7 @@
 		private System.Windows.Forms.Button btnLogin;
 		private System.Windows.Forms.Timer timerTick;
 		private System.Windows.Forms.Label labelTimer;
+		private System.Windows.Forms.Button btnExit;
 	}
 }
 

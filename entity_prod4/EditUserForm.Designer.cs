@@ -162,7 +162,7 @@
 			this.radioBtnAdministrator.Text = "Administrator";
 			this.radioBtnAdministrator.UseVisualStyleBackColor = true;
 			// 
-			// EditUserFormcs
+			// EditUserForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +179,8 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.textBoxEmail);
 			this.Controls.Add(this.label1);
-			this.Name = "EditUserFormcs";
+			this.Name = "EditUserForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Редактировать пользователя";
 			this.ResumeLayout(false);
 			this.PerformLayout();

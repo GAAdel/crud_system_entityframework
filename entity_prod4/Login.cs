@@ -51,16 +51,17 @@ namespace entity_prod4
 				return;
 			}
 
+			// если администратор
 			if (currenUser.RoleID == 1)
 			{
 				MainForm form = new MainForm();
 				form.ShowDialog();
 			}
 
+			// если пользователь
 			if (currenUser.RoleID == 2)
 			{
-				UserForm form = new UserForm(currenUser.ID);
-				form.ShowDialog();
+				isCheckUserHasCrash(currenUser.ID);
 			}
 		}
 
@@ -79,6 +80,41 @@ namespace entity_prod4
 				labelTimer.Text = "Повторите попытку через " + tickLogin + " секунд !";
 			}
 
+		}
+
+		public void isCheckUserHasCrash(int currenUserID) 
+		{
+			MyDbContext db = new MyDbContext();
+			var dbLogs = db.Logs;
+
+			var lastCrash = dbLogs.FirstOrDefault(log => log.UserID == currenUserID
+				&& log.IsCrash == true && log.Reason == null);
+
+			if (lastCrash != null)
+			{
+				LogsHandleForm form = new LogsHandleForm(lastCrash.ID);
+				form.ShowDialog();
+			} else
+			{
+				UserForm form = new UserForm(currenUserID);
+				form.ShowDialog();
+			}
+		}
+
+		private void btnExit_Click(object sender, EventArgs e)
+		{
+			DialogResult result = MessageBox.Show(
+				"Вы уверены, что хотите выйти?",
+				"Сообщение",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Information,
+				MessageBoxDefaultButton.Button1,
+				MessageBoxOptions.DefaultDesktopOnly);
+
+			if (result == DialogResult.Yes)
+			{
+				Application.Exit();
+			}
 		}
 	}
 }

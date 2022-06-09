@@ -166,7 +166,18 @@ namespace entity_prod4
 
 		private void btnClose_Click(object sender, EventArgs e)
 		{
+			DialogResult result = MessageBox.Show(
+				"Вы уверены, что хотите выйти?",
+				"Сообщение",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Information,
+				MessageBoxDefaultButton.Button1,
+				MessageBoxOptions.DefaultDesktopOnly);
 
+			if (result == DialogResult.Yes)
+			{
+				Application.Exit();
+			}
 		}
 	}
 }

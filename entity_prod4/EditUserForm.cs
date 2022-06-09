@@ -68,16 +68,48 @@ namespace entity_prod4
 
 			var currentUser = db.Users.FirstOrDefault(user => user.Email == Email);
 
-			currentUser.Email = emailUser;
-			currentUser.Firstname = firstNameUser;
-			currentUser.Lastname = lastNameUser;
-			currentUser.OfficeID = officeUser;
-			currentUser.RoleID = roleUser;
+			if (!isCheckUserEmailExist(emailUser))
+			{
+				MessageBox.Show("Пользователь с таким логином уже существует в системе!");
+			} else
+			{
+				currentUser.Email = emailUser;
+				currentUser.Firstname = firstNameUser;
+				currentUser.Lastname = lastNameUser;
+				currentUser.OfficeID = officeUser;
+				currentUser.RoleID = roleUser;
 
-			//MessageBox.Show(emailUser + "\n" + firstNameUser + "\n" + lastNameUser + "\n" + officeUser + "\n" + roleUser);
+				//MessageBox.Show(emailUser + "\n" + firstNameUser + "\n" + lastNameUser + "\n" + officeUser + "\n" + roleUser);
 
-			db.SaveChanges();
-			this.Close();
+				DialogResult result = MessageBox.Show(
+					"Вы уверены, что хотите измнеить данные?",
+					"Сообщение",
+					MessageBoxButtons.YesNo,
+					MessageBoxIcon.Information,
+					MessageBoxDefaultButton.Button1,
+					MessageBoxOptions.DefaultDesktopOnly);
+
+				if (result == DialogResult.Yes)
+				{
+					db.SaveChanges();
+					this.Close();
+				}
+			}
+		}
+
+		public bool isCheckUserEmailExist(string emailUser)
+		{
+			MyDbContext db = new MyDbContext();
+			var dbUsers = db.Users;
+			var addUser = dbUsers.FirstOrDefault(user => user.Email == emailUser);
+			if (addUser == null)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public void FillComboBox()

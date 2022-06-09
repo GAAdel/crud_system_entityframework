@@ -12,9 +12,10 @@ namespace entity_prod4
 {
 	public partial class LogsHandleForm : Form
 	{
-		public LogsHandleForm()
+		public LogsHandleForm(int logCrashID)
 		{
 			InitializeComponent();
+			
 		}
 	}
 }

@@ -79,9 +79,9 @@
 			this.labelTimeSpent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelTimeSpent.Location = new System.Drawing.Point(35, 78);
 			this.labelTimeSpent.Name = "labelTimeSpent";
-			this.labelTimeSpent.Size = new System.Drawing.Size(96, 29);
+			this.labelTimeSpent.Size = new System.Drawing.Size(225, 36);
 			this.labelTimeSpent.TabIndex = 17;
-			this.labelTimeSpent.Text = "Время:";
+			this.labelTimeSpent.Text = "Общее время:";
 			// 
 			// labelCrashes
 			// 
@@ -89,9 +89,9 @@
 			this.labelCrashes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelCrashes.Location = new System.Drawing.Point(35, 133);
 			this.labelCrashes.Name = "labelCrashes";
-			this.labelCrashes.Size = new System.Drawing.Size(78, 29);
+			this.labelCrashes.Size = new System.Drawing.Size(443, 36);
 			this.labelCrashes.TabIndex = 18;
-			this.labelCrashes.Text = "Сбои:";
+			this.labelCrashes.Text = "Количество отказов системе:";
 			// 
 			// timerSpentUser
 			// 

@@ -35,21 +35,43 @@ namespace entity_prod4
 
 			string passwordUser = textBoxPassword.Text;
 
-			User user = new User
+			if (!isCheckUserEmailExist(emailUser))
 			{
-				OfficeID = officeUser,
-				RoleID = 2,
-				Email = emailUser,
-				Password = passwordUser,
-				Firstname = firstNameUser,
-				Lastname = lastNameUser,
-				Birthdate = birthdayUser,
-				Active = true
-			};
+				MessageBox.Show("Пользователь с таким логином уже существует в системе!");
+			} else
+			{
+				User user = new User
+				{
+					OfficeID = officeUser,
+					RoleID = 2,
+					Email = emailUser,
+					Password = passwordUser,
+					Firstname = firstNameUser,
+					Lastname = lastNameUser,
+					Birthdate = birthdayUser,
+					Active = true
+				};
 
-			db.Users.Add(user);
-			db.SaveChanges();
-			this.Close();
+				db.Users.Add(user);
+				db.SaveChanges();
+				MessageBox.Show("Пользователь был зарегистрирован!");
+				this.Close();
+			}
+
+		}
+
+		public bool isCheckUserEmailExist(string emailUser)
+		{
+			MyDbContext db = new MyDbContext();
+			var dbUsers = db.Users;
+			var addUser = dbUsers.FirstOrDefault(user => user.Email == emailUser);
+			if (addUser == null)
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
 		}
 
 		public void FillComboBox()
